@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Login extends JPanel {
 
-  ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+  Teacher t;
   ArrayList<Student> students = new ArrayList<Student>();
 
   JButton picB; //picture
@@ -81,18 +81,17 @@ public class Login extends JPanel {
           boolean match = false;
           String pwdText = pwd.getText();
           int pwdN = Integer.parseInt(pwdText);
-          for(Teacher t:teachers){
+
             if(t.getLoginName().equals(text1.getText())&&(t.getPwd()==(pwdN))){
               reminderL1.setText("Success!!!");
               TeacherGUI.createAndShowGUI(t);
               match=true;
-              break;
             }
-          }
+
           for(Student s:students){
             if(s.getLoginName().equals(text1.getText())&&(s.getPwd()==(pwdN))){
               String studentName = s.getName();
-              StudentGUI.createAndShowGUI(studentName);
+              StudentGUI.createAndShowGUI(t,studentName);
               reminderL1.setText("Success!!!");
               match=true;
               break;
@@ -129,9 +128,8 @@ public class Login extends JPanel {
         String pwdText = pwd.getText();
         int pwdN = Integer.parseInt(pwdText);
         if(choice.getSelectedIndex()==0){ //enter teacher
-          Teacher t = new Teacher(text.getText(),pwdN);
+          t = new Teacher(text.getText(),pwdN);
           reminderL.setText("Welcome "+t.getLoginName());
-          teachers.add(t);
         }else if(choice.getSelectedIndex()==1){ //enter student
           Student s = new Student(text.getText(),text2.getText(),pwdN);
           reminderL.setText("Welcome "+s.getLoginName());

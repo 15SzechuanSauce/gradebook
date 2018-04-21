@@ -7,7 +7,7 @@ import java.util.*;
 public class StudentGUI extends JPanel {
 
 
-  public StudentGUI(String name){
+  public StudentGUI(Teacher t,String name){
     super();
 
 
@@ -20,13 +20,13 @@ public class StudentGUI extends JPanel {
   }
 
 
-  public static void createAndShowGUI(String name) {
+  public static void createAndShowGUI(Teacher t,String name) {
       //Create and set up the window.
       JFrame frame = new JFrame("Student Page");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
       //Create and set up the content pane.
-      JComponent newContentPane = new StudentGUI(name);
+      JComponent newContentPane = new StudentGUI(t,name);
       newContentPane.setOpaque(true); //content panes must be opaque
       frame.setContentPane(newContentPane);
 
