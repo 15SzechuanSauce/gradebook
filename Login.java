@@ -83,16 +83,16 @@ public class Login extends JPanel {
           int pwdN = Integer.parseInt(pwdText);
           for(Teacher t:teachers){
             if(t.getLoginName().equals(text1.getText())&&(t.getPwd()==(pwdN))){
-              //go to teacher gui ...........
               reminderL1.setText("Success!!!");
+              TeacherGUI.createAndShowGUI();
               match=true;
               break;
             }
           }
           for(Student s:students){
             if(s.getLoginName().equals(text1.getText())&&(s.getPwd()==(pwdN))){
-              //go to student gui ...........
-              //the real name will come out
+              String studentName = s.getName();
+              StudentGUI.createAndShowGUI(studentName);
               reminderL1.setText("Success!!!");
               match=true;
               break;
@@ -147,7 +147,7 @@ public class Login extends JPanel {
 
   private static void createAndShowGUI() {
       //Create and set up the window.
-      JFrame frame = new JFrame("QQ");
+      JFrame frame = new JFrame("GradeBook");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
       //Create and set up the content pane.

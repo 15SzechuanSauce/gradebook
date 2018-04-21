@@ -2,6 +2,13 @@ public class Student{
   public String loginName;
   public String name;
   public int pwd;
+
+  public Student(String loginName, String name, int pwd){
+    this.loginName=loginName;
+    this.name=name;
+    this.pwd=pwd;
+  }
+
   public String getName(){
     return name;
   }
@@ -20,11 +27,7 @@ public class Student{
   public void setPwd(int pwd){
     this.pwd=pwd;
   }
-  public Student(String loginName, String name, int pwd){
-    this.loginName=loginName;
-    this.name=name;
-    this.pwd=pwd;
-  }
+
 
   public String toString(){
     return "";
