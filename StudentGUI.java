@@ -15,12 +15,12 @@ public class StudentGUI extends JPanel {
     //display the name, grade, and average grade
     //average grade is saved in Teacher.gradebook under "average" if the teacher has finished grading
     //if average grade returns null, or student grade returns null
-    //show "teacher hasn't finshed grading" etc. 
+    //show "teacher hasn't finshed grading" etc.
 
   }
 
 
-  private static void createAndShowGUI(String name) {
+  public static void createAndShowGUI(String name) {
       //Create and set up the window.
       JFrame frame = new JFrame("Student Page");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
