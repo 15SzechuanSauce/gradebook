@@ -93,6 +93,7 @@ public class Login extends JPanel {
     //check whether the account name and password are matched
     button1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+          int accountselect = pane.getSelectedIndex();
           boolean match = false;
           String pwdText = pwd.getText();
           int qqPwd = Integer.parseInt(pwdText);
