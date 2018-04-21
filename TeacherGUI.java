@@ -7,10 +7,10 @@ import java.util.*;
 public class TeacherGUI extends JPanel {
 
 
-  public TeacherGUI(){
+  public TeacherGUI(Teacher t){
     super();
-		JPanel content = this;
 
+    //act upon the parsed in teacher object t
     //teacher can add grade and also modify gradebook (see teacher class methods)
     //see github issue for gui display and buttons
     //there should also be a calculation of average button
@@ -19,13 +19,13 @@ public class TeacherGUI extends JPanel {
   }
 
 
-  public static void createAndShowGUI() {
+  public static void createAndShowGUI(Teacher t) {
       //Create and set up the window.
       JFrame frame = new JFrame("Teacher Page");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
       //Create and set up the content pane.
-      JComponent newContentPane = new TeacherGUI();
+      JComponent newContentPane = new TeacherGUI(t);
       newContentPane.setOpaque(true); //content panes must be opaque
       frame.setContentPane(newContentPane);
 

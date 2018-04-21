@@ -84,7 +84,7 @@ public class Login extends JPanel {
           for(Teacher t:teachers){
             if(t.getLoginName().equals(text1.getText())&&(t.getPwd()==(pwdN))){
               reminderL1.setText("Success!!!");
-              TeacherGUI.createAndShowGUI();
+              TeacherGUI.createAndShowGUI(t);
               match=true;
               break;
             }

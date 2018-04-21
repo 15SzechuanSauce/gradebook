@@ -9,7 +9,7 @@ public class StudentGUI extends JPanel {
 
   public StudentGUI(String name){
     super();
-		JPanel content = this;
+
 
     //use the parsed in name to find in Teacher.gradeBook
     //display the name, grade, and average grade
