@@ -87,12 +87,7 @@ public class Login extends JPanel {
     panelEnd.add(reminderL);
     content.add(panelEnd,BorderLayout.PAGE_END);
 
-
-	  //users map
-	  //String loginname = text.getText();
-	  //int pwd = Integer.parseInt(pwdText.getText());
-	  //if (pwd == users.get(loginname)){
-	  
+  
  
     //log in button
     //check whether the account name and password are matched
