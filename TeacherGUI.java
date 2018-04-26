@@ -70,7 +70,7 @@ public class TeacherGUI extends JPanel {
 
      save.addActionListener(new ActionListener(){
        public void actionPerformed(ActionEvent event){
-           log.setText(t.gradebookString());
+
            try {
               PrintWriter writer = new PrintWriter("grades.txt", "UTF-8");
               writer.println(t.gradebookString());
@@ -78,11 +78,29 @@ public class TeacherGUI extends JPanel {
             } catch (Exception e){
               System.out.println("Problem writing to file: "+e);
             }
+            log.setText(readGradesFromFile("grades.txt"));
       }
      });
 
 
   }
+
+
+  public static String readGradesFromFile(String filename){
+        String presentation = "";
+        try{
+          File file = new File(filename);
+          Scanner scanner = new Scanner(file);
+          while (scanner.hasNext()){
+            String line = scanner.nextLine();
+            presentation += line + "\n";
+          }
+          scanner.close();
+        } catch (FileNotFoundException e){
+          System.out.println("Problem reading map from file "+e);
+        }
+        return presentation;
+    }
 
 
   public static void createAndShowGUI(Teacher t) {
