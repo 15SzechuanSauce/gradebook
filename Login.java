@@ -139,13 +139,8 @@ public class Login extends JPanel {
           reminderL.setText("Welcome "+t.getLoginName());
         }else if(choice.getSelectedIndex()==1){ //enter student
           Student s = new Student(text.getText(),text2.getText(),pwdN);
-          if(text2.getText().equals("")){
-            reminderL.setText("Enter your real name");
-          }else{
-            reminderL.setText("Welcome "+s.getLoginName());
-            students.add(s);
-          }
-
+          reminderL.setText("Welcome "+s.getLoginName());
+          students.add(s);
         }else{
           reminderL.setText("Please choose whether you are teacher or student!");
         }

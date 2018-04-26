@@ -47,8 +47,8 @@ public class TeacherGUI extends JPanel {
     JPanel below = new JPanel();
     below.setLayout(new FlowLayout());
 
-    JButton seelog = new JButton("See Log History");
-    below.add(seelog);
+    JButton save = new JButton("Save Gradebook");
+    below.add(save);
     JTextArea log = new JTextArea("");
     below.add(log);
     content.add(below,BorderLayout.PAGE_END);
@@ -68,9 +68,16 @@ public class TeacherGUI extends JPanel {
       }
      });
 
-     seelog.addActionListener(new ActionListener(){
+     save.addActionListener(new ActionListener(){
        public void actionPerformed(ActionEvent event){
            log.setText(t.gradebookString());
+           try {
+              PrintWriter writer = new PrintWriter("grades.txt", "UTF-8");
+              writer.println(t.gradebookString());
+              writer.close();
+            } catch (Exception e){
+              System.out.println("Problem writing to file: "+e);
+            }
       }
      });
 
