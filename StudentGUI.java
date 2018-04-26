@@ -10,8 +10,10 @@ public class StudentGUI extends JPanel {
   public StudentGUI(Teacher t,String name){
     super();
     JPanel content = this;
-    content.setLayout(new FlowLayout());
+    content.setLayout(new GridLayout(0,2));
+    JLabel namel = new JLabel("Name: ");
     JLabel labelName  = new JLabel(name);
+    content.add(namel);
     content.add(labelName);
 
     JLabel labelGrade;
@@ -20,6 +22,8 @@ public class StudentGUI extends JPanel {
     } else {
         labelGrade  = new JLabel(String.valueOf(t.getGrade(name)));
     }
+    JLabel gradel = new JLabel("Grade: ");
+    content.add(gradel);
     content.add(labelGrade);
 
     JLabel labelAverage;
@@ -28,6 +32,8 @@ public class StudentGUI extends JPanel {
     } else {
         labelAverage = new JLabel(String.valueOf(t.getGrade("average")));
     }
+    JLabel avgl = new JLabel("Average: ");
+    content.add(avgl);
     content.add(labelAverage);
 
 
@@ -37,7 +43,7 @@ public class StudentGUI extends JPanel {
   public static void createAndShowGUI(Teacher t,String name) {
       //Create and set up the window.
       JFrame frame = new JFrame("Student Page");
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
       //Create and set up the content pane.
       JComponent newContentPane = new StudentGUI(t,name);
@@ -47,7 +53,7 @@ public class StudentGUI extends JPanel {
 
       //Display the window.
       frame.pack();
-      frame.setSize(500,500);
+      frame.setSize(200,200);
       frame.setVisible(true);
   }
 

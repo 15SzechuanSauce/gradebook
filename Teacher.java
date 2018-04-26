@@ -53,7 +53,11 @@ public class Teacher{
     return average;
   }
 
-  public String toString(){
-    return "";
+  public String gradebookString(){
+    String presentation = "";
+    for (Map.Entry<String,Double> entry : gradebook.entrySet()) {
+		    presentation = presentation + entry.getKey() + " " + entry.getValue() + "\n";
+    }
+    return presentation;
   }
 }
