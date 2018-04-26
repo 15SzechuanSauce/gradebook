@@ -49,6 +49,7 @@ public class Teacher{
 		    sum+=entry.getValue();
     }
     double average = (double) (sum/gradebook.size());
+    average=Math.floor(average*100) / 100;
     gradebook.put("average",average);
     return average;
   }
