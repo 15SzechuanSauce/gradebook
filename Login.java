@@ -115,13 +115,16 @@ public class Login extends JPanel {
 			public void actionPerformed(ActionEvent e){
         text.setText("");
 				pwd.setText("");
+        text2.setText("");
+
+
 			}
 		});
 
     button4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-        text.setText("");
-				pwd.setText("");
+        text1.setText("");
+        pwd1.setText("");
 			}
 		});
 
