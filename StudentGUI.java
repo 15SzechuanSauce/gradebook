@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.*;
+import javax.sound.sampled.*;
 
 public class StudentGUI extends JPanel {
 
@@ -36,6 +37,14 @@ public class StudentGUI extends JPanel {
     content.add(avgl);
     content.add(labelAverage);
 
+    if (t.getGrade("average")!=-1&&t.getGrade(name)!=-1){
+      if (t.getGrade(name)>=t.getGrade("average")){
+        playGlorious();
+      } else {
+        playCheerful();
+      }
+    }
+
 
   }
 
@@ -56,5 +65,31 @@ public class StudentGUI extends JPanel {
       frame.setSize(200,200);
       frame.setVisible(true);
   }
+
+  public static void playCheerful() {
+    try {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("cheerful.wav").getAbsoluteFile());
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.loop(0);
+    } catch(Exception ex) {
+        System.out.println("Error with playing sound.");
+        ex.printStackTrace();
+    }
+	}
+
+  public static void playGlorious() {
+    try {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("glorious.wav").getAbsoluteFile());
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.loop(0);
+    } catch(Exception ex) {
+        System.out.println("Error with playing sound.");
+        ex.printStackTrace();
+    }
+	}
+
+
 
 }
