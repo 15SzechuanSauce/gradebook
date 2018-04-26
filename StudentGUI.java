@@ -9,13 +9,27 @@ public class StudentGUI extends JPanel {
 
   public StudentGUI(Teacher t,String name){
     super();
+    JPanel content = this;
+    content.setLayout(new FlowLayout());
+    JLabel labelName  = new JLabel(name);
+    content.add(labelName);
 
+    JLabel labelGrade;
+    if (t.getGrade(name)==-1){
+        labelGrade  = new JLabel("N/A");
+    } else {
+        labelGrade  = new JLabel(String.valueOf(t.getGrade(name)));
+    }
+    content.add(labelGrade);
 
-    //use the parsed in name to find in Teacher.gradeBook
-    //display the name, grade, and average grade
-    //average grade is saved in Teacher.gradebook under "average" if the teacher has finished grading
-    //if average grade returns null, or student grade returns null
-    //show "teacher hasn't finshed grading" etc.
+    JLabel labelAverage;
+    if (t.getGrade("average")==-1){
+        labelAverage = new JLabel("N/A");
+    } else {
+        labelAverage = new JLabel(String.valueOf(t.getGrade("average")));
+    }
+    content.add(labelAverage);
+
 
   }
 
@@ -30,29 +44,10 @@ public class StudentGUI extends JPanel {
       newContentPane.setOpaque(true); //content panes must be opaque
       frame.setContentPane(newContentPane);
 
-      JLabel labelName  = new JLabel("", JLabel.CENTER);
-      labelName.setText(name);
-      labelName.setOpaque(true);
-      //labelName.setBackground(Color.GRAY);
-      //labelName.setForeground(Color.WHITE);
-      newContentPane.add(labelName);
-
-      JLabel labelGrade  = new JLabel("", JLabel.CENTER);
-      labelGrade.setText(String.valueOf(t.getGrade(name)));
-      labelGrade.setOpaque(true);
-      //labelGrade.setBackground(Color.GRAY);
-      //labelGrade.setForeground(Color.WHITE);
-      newContentPane.add(labelGrade);
-
-      JLabel labelAverage  = new JLabel("", JLabel.CENTER);
-      labelAverage.setText(String.valueOf(t.getGrade("average")));
-      labelAverage.setOpaque(true);
-      //labelAverage.setBackground(Color.GRAY);
-      //labelAverage.setForeground(Color.WHITE);
-      newContentPane.add(labelAverage);
 
       //Display the window.
       frame.pack();
+      frame.setSize(500,500);
       frame.setVisible(true);
   }
 

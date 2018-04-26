@@ -10,9 +10,14 @@ public class Teacher{
     this.pwd=pwd;
     this.gradebook = new HashMap<String,Double>();
   }
-  public double getGrade(String name)
-  {
-    return gradebook.get(name);
+  public double getGrade(String name){
+    double grade;
+    if (this.gradebook.containsKey(name)){
+      grade = gradebook.get(name);
+    } else {
+      grade = -1.0;
+    }
+    return grade;
   }
   public String getLoginName(){
     return loginName;

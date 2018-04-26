@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Login extends JPanel {
 
-  Teacher t;
+  Teacher t = new Teacher("null",0);
   ArrayList<Student> students = new ArrayList<Student>();
 
   JButton picB; //picture
@@ -82,21 +82,25 @@ public class Login extends JPanel {
           String pwdText = pwd.getText();
           int pwdN = Integer.parseInt(pwdText);
 
+          if (accountselect==0){
             if(t.getLoginName().equals(text1.getText())&&(t.getPwd()==(pwdN))){
               reminderL1.setText("Success!!!");
               TeacherGUI.createAndShowGUI(t);
               match=true;
             }
-
-          for(Student s:students){
-            if(s.getLoginName().equals(text1.getText())&&(s.getPwd()==(pwdN))){
-              String studentName = s.getName();
-              StudentGUI.createAndShowGUI(t,studentName);
-              reminderL1.setText("Success!!!");
-              match=true;
-              break;
+          } else {
+            for(Student s:students){
+              if(s.getLoginName().equals(text1.getText())&&(s.getPwd()==(pwdN))){
+                String studentName = s.getName();
+                StudentGUI.createAndShowGUI(t,studentName);
+                reminderL1.setText("Success!!!");
+                match=true;
+                break;
+              }
             }
           }
+
+
           if(!match){
             reminderL1.setText("Account name and password are not matched. Please enter again!");
             text.setText("");
